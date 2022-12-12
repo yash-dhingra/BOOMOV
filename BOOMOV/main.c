@@ -9,4 +9,6 @@
 
 int main() {
     printf("Hello World!");
+    printf("Hello World!");
+    printf("This is a test for Xcode....");
 }
