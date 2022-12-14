@@ -1,15 +1,69 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
+int payment_gatway();
+
+int random_token(){
+    int number;
+    int lower=1000,upper=9999;
+
+    srand(time(NULL));
+
+    number=(rand() % (upper-lower+1))+lower;
+
+    return number;
+
+}
 
 int token_generation(){
-    //printf("\n\nKindly Enter you name: ");
-    //printf("\nEnter ");
-    return 1;
+    //Extract the Array of Tokens.
+    FILE *fptr_tk;
+    fptr_tk = fopen("dbs/token.dat", "rb");
+    int token[1000] ;
+    fread(&token, sizeof(token), 1, fptr_tk);
+    fclose(fptr_tk);
+
+    if (payment_gatway()){
+        //Generate a New token.
+        int token_number=random_token();
+        //Check for token empty place.
+        int i;
+        for(i=0;token[i]!=-1;i++);
+        //put new token in empty place.
+        token[i]=token_number;
+
+        printf("\n\nToken Generation Success-...\n\n");
+        for(int i=0;i<50;i++) printf("|");
+        printf("\n\nToken Number:- %d\n\n",token_number);
+        for(int i=0;i<50;i++) printf("|");
+
+        //Write Data into dat files.
+
+        fptr_tk = fopen("dbs/token.dat", "wb");
+        fwrite(&token, sizeof(token), 1, fptr_tk);
+        fclose(fptr_tk);
+
+
+        
+        return 1;
+    }
+    else {
+
+        printf("\n\n\n\n!!!!!!!!!!! Payment Failed Kindly restart the Process !!!!!!!!!!!");
+        return 0;
+        
+        }
 
 }
 
 int payment_gatway(){
-    return 1;
+    printf("\n\n!!!!To Be responed by Cashier Only\nWas the payment succefull? (1 for Yes): ");
+    int out;
+    scanf("%d",&out);
+    if (out==1) return 1;
+    else return 0;
 }
 
 void seat_check(hall){
@@ -68,9 +122,11 @@ void seat_check(hall){
 
             movie_sc[temp_seat]=-1;
 
-            // Token Generaration + Payment Success..
+            // Token Generaration + Payment Success + Writing of data in bin files...
 
-            if (token_generation){
+
+
+            if (token_generation()){
                 fptr_sc= fopen("dbs/t1.dat", "wb");
 
                 fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
