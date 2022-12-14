@@ -4,7 +4,7 @@
 
 void seat_check(hall){
 
-    if (hall==0){
+    if (hall==0) {
         // Extracting Array from bin file..
 
         FILE *fptr_sc;
@@ -47,6 +47,7 @@ void seat_check(hall){
     }
 
 }
+
 
 void main(){
 
