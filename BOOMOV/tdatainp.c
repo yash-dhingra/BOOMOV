@@ -26,7 +26,7 @@ void main()
     FILE *fptr_mn;
     fptr_mn = fopen("dbs/t1.dat", "wb");
     int movie_name[100] ;
-    for (int i=0;i<99;i++){
+    for (int i=0;i<=99;i++){
         movie_name[i]=i;
     }
     movie_name[23]=-1;

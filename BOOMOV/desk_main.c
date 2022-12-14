@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 
+int token_generation(){
+    //printf("\n\nKindly Enter you name: ");
+    //printf("\nEnter ");
+    return 1;
+
+}
+
+int payment_gatway(){
+    return 1;
+}
 
 void seat_check(hall){
 
@@ -41,7 +51,38 @@ void seat_check(hall){
         printf("\t\tMovie Screen This Way\n");
         for(int i=0;i<50;i++) printf("|");
 
-        //Now take inpute from user to change which seat he/she like.
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success..
+
+            if (token_generation){
+                fptr_sc= fopen("dbs/t1.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
+
 
 
     }
