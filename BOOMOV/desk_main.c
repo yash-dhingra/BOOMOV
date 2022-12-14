@@ -4,6 +4,9 @@
 #include <time.h>
 
 int payment_gatway();
+int token_generation();
+int random_token();
+void seat_check(int hall);
 
 int random_token(){
     int number;
@@ -141,6 +144,656 @@ void seat_check(hall){
 
 
 
+    }
+
+    else if (hall==1) {
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t2.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t2.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
+    }
+
+    else if(hall==2){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t3.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t3.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+
+    }
+    else if(hall==3){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t4.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t4.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+
+    }
+    else if(hall==4){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t5.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t5.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
+    }
+    else if(hall==5){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t6.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t6.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
+    }
+    else if(hall==6){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t7.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t7.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
+    }
+    else if(hall==7){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t8.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t8.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
+    }
+    else if(hall==8){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t9.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t9.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
+    }
+    else if(hall==9){
+
+        // Extracting Array from bin file..
+
+        FILE *fptr_sc;
+
+        fptr_sc= fopen("dbs/t10.dat", "rb");
+
+        int movie_sc[100];
+
+        fread(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+        fclose(fptr_sc);
+
+        // User Display of seats available 
+
+        printf("\n\n");
+
+        for(int i=0;i<50;i++) printf("#");
+
+        int counter=0;
+        printf("\n\n");
+
+        for (int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                if (movie_sc[counter]!=-1){
+                    if(counter<10) printf("%d    ",movie_sc[counter]);
+                    else printf("%d   ",movie_sc[counter]);
+                }
+                else printf("-    ");
+                counter++;
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+        printf("\t\tMovie Screen This Way\n");
+        for(int i=0;i<50;i++) printf("|");
+
+        //Now take input from user to change which seat he/she like.
+
+        printf("\nWhich Seat would you like to book? : ");
+        int temp_seat;
+        scanf("%d",&temp_seat);
+
+        // Check if seat entered is already booked.
+        if (movie_sc[temp_seat]==-1){
+            printf("\n\n\n\n!!!!!!!!!!! Seat Already Booked Kindly restart the process !!!!!!!!!!!");
+        }
+
+        else{
+
+            //Change the array in local memory..
+
+            movie_sc[temp_seat]=-1;
+
+            // Token Generaration + Payment Success + Writing of data in bin files...
+
+
+
+            if (token_generation()){
+                fptr_sc= fopen("dbs/t10.dat", "wb");
+
+                fwrite(&movie_sc, sizeof(movie_sc), 1, fptr_sc);
+
+                fclose(fptr_sc);
+
+                printf("\n\nTransaction Complete...");
+        }
+
+        }
+        
     }
 
 }
