@@ -32,7 +32,7 @@ void seat_check(hall){
                     if(counter<10) printf("%d    ",movie_sc[counter]);
                     else printf("%d   ",movie_sc[counter]);
                 }
-                else printf("-   ");
+                else printf("-    ");
                 counter++;
             }
             printf("\n");

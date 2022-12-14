@@ -29,6 +29,7 @@ void main()
     for (int i=0;i<99;i++){
         movie_name[i]=i;
     }
+    movie_name[23]=-1;
     fwrite(&movie_name, sizeof(movie_name), 1, fptr_mn);
     fclose(fptr_mn);
 }
